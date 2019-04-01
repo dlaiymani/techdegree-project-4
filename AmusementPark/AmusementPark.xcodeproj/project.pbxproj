@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA5126612251FE7100766F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126602251FE7100766F18 /* AppDelegate.swift */; };
+		AA5126632251FE7100766F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126622251FE7100766F18 /* ViewController.swift */; };
+		AA5126662251FE7100766F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA5126642251FE7100766F18 /* Main.storyboard */; };
+		AA5126682251FE7300766F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA5126672251FE7300766F18 /* Assets.xcassets */; };
+		AA51266B2251FE7300766F18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA5126692251FE7300766F18 /* LaunchScreen.storyboard */; };
+		AA5126762251FE7300766F18 /* AmusementParkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126752251FE7300766F18 /* AmusementParkTests.swift */; };
+		AA5126812251FE7300766F18 /* AmusementParkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126802251FE7300766F18 /* AmusementParkUITests.swift */; };
+		AA51268F2251FE9C00766F18 /* BusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51268E2251FE9C00766F18 /* BusinessLogic.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA5126722251FE7300766F18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA5126552251FE7000766F18 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA51265C2251FE7000766F18;
+			remoteInfo = AmusementPark;
+		};
+		AA51267D2251FE7300766F18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA5126552251FE7000766F18 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA51265C2251FE7000766F18;
+			remoteInfo = AmusementPark;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA51265D2251FE7000766F18 /* AmusementPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmusementPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA5126602251FE7100766F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA5126622251FE7100766F18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AA5126652251FE7100766F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA5126672251FE7300766F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA51266A2251FE7300766F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AA51266C2251FE7300766F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA5126712251FE7300766F18 /* AmusementParkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmusementParkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA5126752251FE7300766F18 /* AmusementParkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmusementParkTests.swift; sourceTree = "<group>"; };
+		AA5126772251FE7300766F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA51267C2251FE7300766F18 /* AmusementParkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmusementParkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA5126802251FE7300766F18 /* AmusementParkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmusementParkUITests.swift; sourceTree = "<group>"; };
+		AA5126822251FE7300766F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA51268E2251FE9C00766F18 /* BusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogic.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA51265A2251FE7000766F18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA51266E2251FE7300766F18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA5126792251FE7300766F18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA5126542251FE7000766F18 = {
+			isa = PBXGroup;
+			children = (
+				AA51265F2251FE7000766F18 /* AmusementPark */,
+				AA5126742251FE7300766F18 /* AmusementParkTests */,
+				AA51267F2251FE7300766F18 /* AmusementParkUITests */,
+				AA51265E2251FE7000766F18 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA51265E2251FE7000766F18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA51265D2251FE7000766F18 /* AmusementPark.app */,
+				AA5126712251FE7300766F18 /* AmusementParkTests.xctest */,
+				AA51267C2251FE7300766F18 /* AmusementParkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA51265F2251FE7000766F18 /* AmusementPark */ = {
+			isa = PBXGroup;
+			children = (
+				AA5126602251FE7100766F18 /* AppDelegate.swift */,
+				AA5126622251FE7100766F18 /* ViewController.swift */,
+				AA5126642251FE7100766F18 /* Main.storyboard */,
+				AA5126672251FE7300766F18 /* Assets.xcassets */,
+				AA5126692251FE7300766F18 /* LaunchScreen.storyboard */,
+				AA51266C2251FE7300766F18 /* Info.plist */,
+				AA51268E2251FE9C00766F18 /* BusinessLogic.swift */,
+			);
+			path = AmusementPark;
+			sourceTree = "<group>";
+		};
+		AA5126742251FE7300766F18 /* AmusementParkTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA5126752251FE7300766F18 /* AmusementParkTests.swift */,
+				AA5126772251FE7300766F18 /* Info.plist */,
+			);
+			path = AmusementParkTests;
+			sourceTree = "<group>";
+		};
+		AA51267F2251FE7300766F18 /* AmusementParkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AA5126802251FE7300766F18 /* AmusementParkUITests.swift */,
+				AA5126822251FE7300766F18 /* Info.plist */,
+			);
+			path = AmusementParkUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA51265C2251FE7000766F18 /* AmusementPark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA5126852251FE7300766F18 /* Build configuration list for PBXNativeTarget "AmusementPark" */;
+			buildPhases = (
+				AA5126592251FE7000766F18 /* Sources */,
+				AA51265A2251FE7000766F18 /* Frameworks */,
+				AA51265B2251FE7000766F18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmusementPark;
+			productName = AmusementPark;
+			productReference = AA51265D2251FE7000766F18 /* AmusementPark.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA5126702251FE7300766F18 /* AmusementParkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA5126882251FE7300766F18 /* Build configuration list for PBXNativeTarget "AmusementParkTests" */;
+			buildPhases = (
+				AA51266D2251FE7300766F18 /* Sources */,
+				AA51266E2251FE7300766F18 /* Frameworks */,
+				AA51266F2251FE7300766F18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA5126732251FE7300766F18 /* PBXTargetDependency */,
+			);
+			name = AmusementParkTests;
+			productName = AmusementParkTests;
+			productReference = AA5126712251FE7300766F18 /* AmusementParkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AA51267B2251FE7300766F18 /* AmusementParkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA51268B2251FE7300766F18 /* Build configuration list for PBXNativeTarget "AmusementParkUITests" */;
+			buildPhases = (
+				AA5126782251FE7300766F18 /* Sources */,
+				AA5126792251FE7300766F18 /* Frameworks */,
+				AA51267A2251FE7300766F18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA51267E2251FE7300766F18 /* PBXTargetDependency */,
+			);
+			name = AmusementParkUITests;
+			productName = AmusementParkUITests;
+			productReference = AA51267C2251FE7300766F18 /* AmusementParkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA5126552251FE7000766F18 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = davidlaiymani;
+				TargetAttributes = {
+					AA51265C2251FE7000766F18 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					AA5126702251FE7300766F18 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = AA51265C2251FE7000766F18;
+					};
+					AA51267B2251FE7300766F18 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = AA51265C2251FE7000766F18;
+					};
+				};
+			};
+			buildConfigurationList = AA5126582251FE7000766F18 /* Build configuration list for PBXProject "AmusementPark" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA5126542251FE7000766F18;
+			productRefGroup = AA51265E2251FE7000766F18 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA51265C2251FE7000766F18 /* AmusementPark */,
+				AA5126702251FE7300766F18 /* AmusementParkTests */,
+				AA51267B2251FE7300766F18 /* AmusementParkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA51265B2251FE7000766F18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA51266B2251FE7300766F18 /* LaunchScreen.storyboard in Resources */,
+				AA5126682251FE7300766F18 /* Assets.xcassets in Resources */,
+				AA5126662251FE7100766F18 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA51266F2251FE7300766F18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA51267A2251FE7300766F18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA5126592251FE7000766F18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA5126632251FE7100766F18 /* ViewController.swift in Sources */,
+				AA5126612251FE7100766F18 /* AppDelegate.swift in Sources */,
+				AA51268F2251FE9C00766F18 /* BusinessLogic.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA51266D2251FE7300766F18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA5126762251FE7300766F18 /* AmusementParkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA5126782251FE7300766F18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA5126812251FE7300766F18 /* AmusementParkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA5126732251FE7300766F18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA51265C2251FE7000766F18 /* AmusementPark */;
+			targetProxy = AA5126722251FE7300766F18 /* PBXContainerItemProxy */;
+		};
+		AA51267E2251FE7300766F18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA51265C2251FE7000766F18 /* AmusementPark */;
+			targetProxy = AA51267D2251FE7300766F18 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA5126642251FE7100766F18 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA5126652251FE7100766F18 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AA5126692251FE7300766F18 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA51266A2251FE7300766F18 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA5126832251FE7300766F18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA5126842251FE7300766F18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA5126862251FE7300766F18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BCB2U5N8E6;
+				INFOPLIST_FILE = AmusementPark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.univ-fcomte.courspart.AmusementPark";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA5126872251FE7300766F18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BCB2U5N8E6;
+				INFOPLIST_FILE = AmusementPark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.univ-fcomte.courspart.AmusementPark";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AA5126892251FE7300766F18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BCB2U5N8E6;
+				INFOPLIST_FILE = AmusementParkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.univ-fcomte.courspart.AmusementParkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmusementPark.app/AmusementPark";
+			};
+			name = Debug;
+		};
+		AA51268A2251FE7300766F18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BCB2U5N8E6;
+				INFOPLIST_FILE = AmusementParkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.univ-fcomte.courspart.AmusementParkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmusementPark.app/AmusementPark";
+			};
+			name = Release;
+		};
+		AA51268C2251FE7300766F18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BCB2U5N8E6;
+				INFOPLIST_FILE = AmusementParkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.univ-fcomte.courspart.AmusementParkUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AmusementPark;
+			};
+			name = Debug;
+		};
+		AA51268D2251FE7300766F18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BCB2U5N8E6;
+				INFOPLIST_FILE = AmusementParkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.univ-fcomte.courspart.AmusementParkUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AmusementPark;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA5126582251FE7000766F18 /* Build configuration list for PBXProject "AmusementPark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA5126832251FE7300766F18 /* Debug */,
+				AA5126842251FE7300766F18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA5126852251FE7300766F18 /* Build configuration list for PBXNativeTarget "AmusementPark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA5126862251FE7300766F18 /* Debug */,
+				AA5126872251FE7300766F18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA5126882251FE7300766F18 /* Build configuration list for PBXNativeTarget "AmusementParkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA5126892251FE7300766F18 /* Debug */,
+				AA51268A2251FE7300766F18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA51268B2251FE7300766F18 /* Build configuration list for PBXNativeTarget "AmusementParkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA51268C2251FE7300766F18 /* Debug */,
+				AA51268D2251FE7300766F18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA5126552251FE7000766F18 /* Project object */;
+}
