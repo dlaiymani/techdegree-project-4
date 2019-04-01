@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AreaAccess {
+enum Area: String {
     case amusement
     case kitchen
     case rideControl
@@ -22,9 +22,15 @@ enum RideAccess {
 }
 
 enum DiscountAccess {
-    case none
     case onFood(percentage: Double)
     case onMerchandise(percentage: Double)
+    
+    var discount: Double {
+        switch self {
+        case .onFood(let percentage): return percentage
+        case .onMerchandise(let percentage): return percentage
+        }
+    }
 }
 
 enum GuestType {
@@ -50,7 +56,7 @@ struct PersonalInformation  {
 }
 
 protocol Entrant {
-    var areaAccess: [AreaAccess] { get }
+    var areaAccess: [Area] { get }
     var rideAccess: [RideAccess] { get }
     var discountAccess: [DiscountAccess] { get }
 }
@@ -58,7 +64,7 @@ protocol Entrant {
 // Guest class. Implements Entrant protocol
 class Guest: Entrant {
     var type: GuestType
-    var areaAccess: [AreaAccess] {
+    var areaAccess: [Area] {
         switch self.type {
         case .classic: return [.amusement]
         case .vip: return [.amusement]
@@ -74,9 +80,9 @@ class Guest: Entrant {
     }
     var discountAccess: [DiscountAccess] {
         switch self.type {
-        case .classic: return [.none]
+        case .classic: return [.onFood(percentage: 0), .onMerchandise(percentage: 0)]
         case .vip: return [.onFood(percentage: 10), .onMerchandise(percentage: 20)]
-        case .freeChild: return [.none]
+        case .freeChild: return [.onFood(percentage: 0), .onMerchandise(percentage: 0)]
         }
     }
     
@@ -96,7 +102,7 @@ class Guest: Entrant {
 
 class Employee: Entrant {
     var type: EmployeeType
-    var areaAccess: [AreaAccess] {
+    var areaAccess: [Area] {
         switch self.type {
         case .food: return [.amusement, .kitchen]
         case .ride: return [.amusement, .rideControl]
@@ -121,7 +127,7 @@ class Employee: Entrant {
 
 class Manager: Entrant {
     
-    var areaAccess: [AreaAccess] {
+    var areaAccess: [Area] {
         return [.amusement, .kitchen, .rideControl, .maintenance]
     }
     var rideAccess: [RideAccess] {

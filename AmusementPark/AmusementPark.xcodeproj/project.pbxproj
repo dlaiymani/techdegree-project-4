@@ -15,6 +15,8 @@
 		AA5126762251FE7300766F18 /* AmusementParkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126752251FE7300766F18 /* AmusementParkTests.swift */; };
 		AA5126812251FE7300766F18 /* AmusementParkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126802251FE7300766F18 /* AmusementParkUITests.swift */; };
 		AA51268F2251FE9C00766F18 /* BusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51268E2251FE9C00766F18 /* BusinessLogic.swift */; };
+		AA51269122520CCF00766F18 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51269022520CCF00766F18 /* Errors.swift */; };
+		AA5126932252116000766F18 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126922252116000766F18 /* Checkpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		AA5126802251FE7300766F18 /* AmusementParkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmusementParkUITests.swift; sourceTree = "<group>"; };
 		AA5126822251FE7300766F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA51268E2251FE9C00766F18 /* BusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogic.swift; sourceTree = "<group>"; };
+		AA51269022520CCF00766F18 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		AA5126922252116000766F18 /* Checkpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +109,9 @@
 				AA5126672251FE7300766F18 /* Assets.xcassets */,
 				AA5126692251FE7300766F18 /* LaunchScreen.storyboard */,
 				AA51266C2251FE7300766F18 /* Info.plist */,
+				AA5126922252116000766F18 /* Checkpoint.swift */,
 				AA51268E2251FE9C00766F18 /* BusinessLogic.swift */,
+				AA51269022520CCF00766F18 /* Errors.swift */,
 			);
 			path = AmusementPark;
 			sourceTree = "<group>";
@@ -259,6 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA5126932252116000766F18 /* Checkpoint.swift in Sources */,
+				AA51269122520CCF00766F18 /* Errors.swift in Sources */,
 				AA5126632251FE7100766F18 /* ViewController.swift in Sources */,
 				AA5126612251FE7100766F18 /* AppDelegate.swift in Sources */,
 				AA51268F2251FE9C00766F18 /* BusinessLogic.swift in Sources */,
