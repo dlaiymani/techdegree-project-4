@@ -11,25 +11,32 @@ import UIKit
 class ViewController: UIViewController {
     
     var checkpoints = [Checkpoint]()
-    var guests = [Guest]()
-    var employees = [Employee]()
-    var managers = [Manager]()
+    var guestsPass = [Pass]()
+    var employeesPass = [Pass]()
+    var managersPass = [Pass]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         createCheckPoints()
-        createGuests()
-        createEmployees()
-        createManagers()
+        createGuestsPass()
+        createEmployeesPass()
+        createManagersPass()
         
         for checkpoint in checkpoints {
-            for guest in guests {
-               checkpoint.swipe(entrant: guest)
+           /* for guestPass in guestsPass {
+               checkpoint.swipe(pass: guestPass)
+            }*/
+            
+            for employeePass in employeesPass {
+                checkpoint.swipe(pass: employeePass)
             }
+            
+           /* for managerPass in managersPass {
+                checkpoint.swipe(entrant: managerPass)
+            }*/
+            
         }
-        
-
     }
     
 
@@ -37,26 +44,36 @@ class ViewController: UIViewController {
         checkpoints = [RestrictedAreaCheckpoint(aera: .amusement), RestrictedAreaCheckpoint(aera: .kitchen), RestrictedAreaCheckpoint(aera: .maintenance), RestrictedAreaCheckpoint(aera: .rideControl), RestrictedAreaCheckpoint(aera: .office), RegisterCheckPoint(), SkipTheLinesCheckpoint() ]
     }
     
-    func createGuests() {
+    func createGuestsPass() {
         if let childDateOfBirth = createDate(from: "2017/10/10"), let adultDateOfBirth = createDate(from: "2000/08/08") {
-            guests = [Guest(type: .classic), Guest(type: .vip), Guest(childBornOn: childDateOfBirth), Guest(childBornOn: adultDateOfBirth)]
+            let pass1 = Pass(entrant: Guest(entrantType: .classic))
+            let pass2 = Pass(entrant: Guest(entrantType: .vip))
+            let pass3 = Pass(entrant: Guest(childBornOn: childDateOfBirth))
+            let pass4 = Pass(entrant: Guest(childBornOn: adultDateOfBirth))
+            guestsPass = [pass4]
         }
         
     }
-    
-    func createEmployees() {
+  
+    func createEmployeesPass() {
         let personalInformation1 = PersonalInformation(firstName: "Sheldon", lastName: "Cooper", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "91001")
         let personalInformation2 = PersonalInformation(firstName: "Amy", lastName: "Fowler", streetAddress: "", city: "Pasadena", state: "", zipCode: "91001")
         let personalInformation3 = PersonalInformation(firstName: "Penny", lastName: "", streetAddress: "", city: "Ohmaha", state: "Nebraska", zipCode: "68197")
         let personalInformation4 = PersonalInformation(firstName: "Leonard", lastName: "Hofstader", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "")
-        employees = [Employee(type: .food, personalInformation: personalInformation1), Employee(type: .maintenance, personalInformation: personalInformation2), Employee(type: .ride, personalInformation: personalInformation3), Employee(type: .food, personalInformation: personalInformation4)]
+        let pass1 = Pass(entrant: Employee(entrantType: .food, personalInformation: personalInformation1))
+        let pass2 = Pass(entrant: Employee(entrantType: .maintenance, personalInformation: personalInformation2))
+        let pass3 = Pass(entrant: Employee(entrantType: .ride, personalInformation: personalInformation3))
+        let pass4 = Pass(entrant: Employee(entrantType: .food, personalInformation: personalInformation4))
+        employeesPass = [pass3]
     }
     
-    func createManagers() {
+    func createManagersPass() {
         
         let personlInformationManager1 = PersonalInformation(firstName: "Rajesh", lastName: "Kootrapali", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "91001")
         let personlInformationManager2 = PersonalInformation(firstName: "Howard", lastName: "Wolowitz", streetAddress: "", city: "Pasadena", state: "California", zipCode: "91001")
-        managers = [Manager(personalInformation: personlInformationManager1), Manager(personalInformation: personlInformationManager2)]
+        let pass1 = Pass(entrant: Manager(personalInformation: personlInformationManager1))
+        let pass2 = Pass(entrant: Manager(personalInformation: personlInformationManager2))
+        managersPass = [pass1, pass2]
         
     }
     

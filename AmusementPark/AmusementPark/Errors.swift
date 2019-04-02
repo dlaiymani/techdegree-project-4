@@ -18,3 +18,7 @@ enum PersonalInformationEntryError: Error {
     case missingZipCode
     
 }
+
+enum DateOfBirthErrors: Error {
+    case childTooOld
+}

@@ -17,6 +17,8 @@
 		AA51268F2251FE9C00766F18 /* BusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51268E2251FE9C00766F18 /* BusinessLogic.swift */; };
 		AA51269122520CCF00766F18 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51269022520CCF00766F18 /* Errors.swift */; };
 		AA5126932252116000766F18 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126922252116000766F18 /* Checkpoint.swift */; };
+		AA5126972253288E00766F18 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126962253288E00766F18 /* Pass.swift */; };
+		AA512699225328D300766F18 /* PersonalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA512698225328D300766F18 /* PersonalInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		AA51268E2251FE9C00766F18 /* BusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogic.swift; sourceTree = "<group>"; };
 		AA51269022520CCF00766F18 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		AA5126922252116000766F18 /* Checkpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
+		AA5126962253288E00766F18 /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		AA512698225328D300766F18 /* PersonalInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				AA51266C2251FE7300766F18 /* Info.plist */,
 				AA5126922252116000766F18 /* Checkpoint.swift */,
 				AA51268E2251FE9C00766F18 /* BusinessLogic.swift */,
+				AA512698225328D300766F18 /* PersonalInformation.swift */,
+				AA5126962253288E00766F18 /* Pass.swift */,
 				AA51269022520CCF00766F18 /* Errors.swift */,
 			);
 			path = AmusementPark;
@@ -269,7 +275,9 @@
 				AA51269122520CCF00766F18 /* Errors.swift in Sources */,
 				AA5126632251FE7100766F18 /* ViewController.swift in Sources */,
 				AA5126612251FE7100766F18 /* AppDelegate.swift in Sources */,
+				AA5126972253288E00766F18 /* Pass.swift in Sources */,
 				AA51268F2251FE9C00766F18 /* BusinessLogic.swift in Sources */,
+				AA512699225328D300766F18 /* PersonalInformation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

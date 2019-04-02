@@ -17,7 +17,7 @@ enum CheckpointType {
 protocol Checkpoint {
     var type: CheckpointType { get }
     
-    func swipe(entrant: Entrant)
+    func swipe(pass: Pass)
 }
 
 
@@ -31,11 +31,12 @@ class RestrictedAreaCheckpoint: Checkpoint {
     }
     
     
-    func swipe(entrant: Entrant) {
-        if entrant.areaAccess.contains(area) {
-            print("Authorized access")
+    func swipe(pass: Pass) {
+        pass.checkPersonalInformation()
+        if pass.isAuthorizedForArea(area) {
+            print("\(pass.entrantPassTitle) - Authorized access to: \(area.rawValue)")
         } else {
-            print("You have not the access right to enter this area \(area.rawValue)")
+            print("\(pass.entrantPassTitle) - You have not the access right to enter this area: \(area.rawValue)")
         }
     }
 }
@@ -48,11 +49,12 @@ class SkipTheLinesCheckpoint: Checkpoint {
         self.type = .skipTheLines
     }
 
-    func swipe(entrant: Entrant) {
-        if entrant.rideAccess.contains(.skipTheLines) {
-            print("You can the skip the line")
+    func swipe(pass: Pass) {
+        pass.checkPersonalInformation()
+        if pass.isAuthorizedToSkipTheLines() {
+            print("\(pass.entrantPassTitle) - You can the skip the line")
         } else {
-            print("You have not the access right to skip the line")
+            print("\(pass.entrantPassTitle) - You have not the access right to skip the line")
         }
     }
 }
@@ -65,14 +67,14 @@ class RegisterCheckPoint: Checkpoint {
         self.type = .register
     }
     
-    
-    func swipe(entrant: Entrant) {
-        let discountOnFood = entrant.discountAccess[0].discount
-        let discountOnMerchandise = entrant.discountAccess[1].discount
-        if discountOnFood == 0.0 && discountOnMerchandise == 0.0 {
-            print("No discount")
+    func swipe(pass: Pass) {
+        pass.checkPersonalInformation()
+        if pass.doesAllowDiscounts() {
+            print("\(pass.entrantPassTitle) - No discount")
         } else {
-            print("You have \(discountOnFood)% discount on food and \(discountOnMerchandise)% discount on merchandise")
+            let discountOnFood = pass.authorizedDiscounts()[0]
+            let discountOnMerchandise = pass.authorizedDiscounts()[1]
+            print("\(pass.entrantPassTitle) - You have \(discountOnFood)% discount on food and \(discountOnMerchandise)% discount on merchandise")
         }
     }
 }

@@ -33,80 +33,107 @@ enum DiscountAccess {
     }
 }
 
-enum GuestType {
+
+enum EntrantType: String {
     case classic
     case vip
     case freeChild
-}
-
-enum EmployeeType {
     case food
     case ride
     case maintenance
+    case manager
 }
 
-struct PersonalInformation  {
-    var firstName: String
-    var lastName: String
-    var streetAddress: String
-    var city: String
-    var state: String
-    var zipCode: String
-
+enum EntrantCategory: String {
+    case guest
+    case employee
+    case manager
 }
 
 protocol Entrant {
     var areaAccess: [Area] { get }
     var rideAccess: [RideAccess] { get }
     var discountAccess: [DiscountAccess] { get }
+    var entrantCategory: EntrantCategory { get }
+    var entrantType: EntrantType { get }
+    
+    func stringForEntrantPass() -> String
+    func stringForPersonalInformation() -> String
+    func getPersonalInformation() -> PersonalInformation?
 }
 
 // Guest class. Implements Entrant protocol
 class Guest: Entrant {
-    var type: GuestType
+    var entrantType: EntrantType
+    var entrantCategory: EntrantCategory
     var areaAccess: [Area] {
-        switch self.type {
+        switch self.entrantType {
         case .classic: return [.amusement]
         case .vip: return [.amusement]
         case .freeChild: return [.amusement]
+        default: return []
         }
     }
     var rideAccess: [RideAccess] {
-        switch self.type {
+        switch self.entrantType {
         case .classic: return [.all]
         case .vip: return [.all, .skipTheLines]
         case .freeChild: return [.all]
+        default: return []
+
         }
     }
     var discountAccess: [DiscountAccess] {
-        switch self.type {
+        switch self.entrantType {
         case .classic: return [.onFood(percentage: 0), .onMerchandise(percentage: 0)]
         case .vip: return [.onFood(percentage: 10), .onMerchandise(percentage: 20)]
         case .freeChild: return [.onFood(percentage: 0), .onMerchandise(percentage: 0)]
+        default: return []
+
         }
     }
     
     var birthDate: Date?
     
-    init(type: GuestType) {
-        self.type = type
+    init(entrantType: EntrantType) {
+        self.entrantType = entrantType
+        self.entrantCategory = .guest
     }
     
     convenience init(childBornOn: Date) {
-        self.init(type: GuestType.freeChild)
+        self.init(entrantType: EntrantType.freeChild)
         self.birthDate = childBornOn
+    }
+    
+    func stringForEntrantPass() -> String {
+        return "\(self.entrantCategory) \(self.entrantType) Pass"
+    }
+    
+    func stringForPersonalInformation() -> String {
+        if self.entrantType == .freeChild {
+            return "Personal Information: Date of birth: \(birthDate)"
+        } else {
+            return "No personal information to display"
+        }
+    }
+    
+    func getPersonalInformation() -> PersonalInformation? {
+        return nil
     }
 }
 
 
 
 class Employee: Entrant {
-    var type: EmployeeType
+    var entrantType: EntrantType
+    var entrantCategory: EntrantCategory
     var areaAccess: [Area] {
-        switch self.type {
+        switch self.entrantType {
         case .food: return [.amusement, .kitchen]
         case .ride: return [.amusement, .rideControl]
         case .maintenance: return [.amusement, .kitchen, .rideControl, .maintenance]
+        default: return []
+
         }
     }
     var rideAccess: [RideAccess] {
@@ -118,15 +145,29 @@ class Employee: Entrant {
     
     var personalInformation: PersonalInformation
 
-    init(type: EmployeeType, personalInformation: PersonalInformation) {
-        self.type = type
+    init(entrantType: EntrantType, personalInformation: PersonalInformation) {
+        self.entrantCategory = .employee
+        self.entrantType = entrantType
         self.personalInformation = personalInformation
     }
+    
+    func stringForEntrantPass() -> String {
+        return "\(self.entrantCategory) \(self.entrantType) Service Pass"
+    }
 
+    func stringForPersonalInformation() -> String {
+        return "Personal Information: \(self.personalInformation.description)"
+    }
+    
+    func getPersonalInformation() -> PersonalInformation? {
+        return self.personalInformation
+    }
+       
 }
 
 class Manager: Entrant {
-    
+    var entrantCategory: EntrantCategory
+    var entrantType: EntrantType
     var areaAccess: [Area] {
         return [.amusement, .kitchen, .rideControl, .maintenance]
     }
@@ -136,11 +177,26 @@ class Manager: Entrant {
     var discountAccess: [DiscountAccess] {
         return [DiscountAccess.onFood(percentage: 25), DiscountAccess.onMerchandise(percentage: 25)]
     }
-    
+
     var personalInformation: PersonalInformation
 
     init(personalInformation: PersonalInformation) {
         self.personalInformation = personalInformation
+        self.entrantCategory = .manager
+        self.entrantType = .manager
+    }
+    
+    func stringForEntrantPass() -> String {
+        return "\(self.entrantCategory) Pass"
+    }
+    
+    func stringForPersonalInformation() -> String {
+        return "Personal Information: \(self.personalInformation.description)"
     }
 
+    func getPersonalInformation() -> PersonalInformation? {
+        return self.personalInformation
+    }
 }
+
+
