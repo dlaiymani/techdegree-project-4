@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         createEmployeesPass()
         createManagersPass()
         
+        // Comments the inner loops to test Guests, Employees or Managers
         for checkpoint in checkpoints {
            /* for guestPass in guestsPass {
                checkpoint.swipe(pass: guestPass)
@@ -44,6 +45,7 @@ class ViewController: UIViewController {
         checkpoints = [RestrictedAreaCheckpoint(aera: .amusement), RestrictedAreaCheckpoint(aera: .kitchen), RestrictedAreaCheckpoint(aera: .maintenance), RestrictedAreaCheckpoint(aera: .rideControl), RestrictedAreaCheckpoint(aera: .office), RegisterCheckPoint(), SkipTheLinesCheckpoint() ]
     }
     
+    // Add or remove pass in the guestsPass array (last line)
     func createGuestsPass() {
         if let childDateOfBirth = createDate(from: "2017/10/10"), let adultDateOfBirth = createDate(from: "2000/08/08") {
             let pass1 = Pass(entrant: Guest(entrantType: .classic))
@@ -55,6 +57,7 @@ class ViewController: UIViewController {
         
     }
   
+    // Add or remove pass in the employeesPass array (last line)
     func createEmployeesPass() {
         let personalInformation1 = PersonalInformation(firstName: "Sheldon", lastName: "Cooper", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "91001")
         let personalInformation2 = PersonalInformation(firstName: "Amy", lastName: "Fowler", streetAddress: "", city: "Pasadena", state: "", zipCode: "91001")
@@ -67,8 +70,8 @@ class ViewController: UIViewController {
         employeesPass = [pass3]
     }
     
+    // Add or remove pass in the managersPass array (last line)
     func createManagersPass() {
-        
         let personlInformationManager1 = PersonalInformation(firstName: "Rajesh", lastName: "Kootrapali", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "91001")
         let personlInformationManager2 = PersonalInformation(firstName: "Howard", lastName: "Wolowitz", streetAddress: "", city: "Pasadena", state: "California", zipCode: "91001")
         let pass1 = Pass(entrant: Manager(personalInformation: personlInformationManager1))
@@ -77,6 +80,7 @@ class ViewController: UIViewController {
         
     }
     
+    // Create a date from a String
     func createDate(from date: String) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
