@@ -14,6 +14,7 @@ enum CheckpointType {
     case register
 }
 
+//A checkpoint has a type and allows to swipe a pass
 protocol Checkpoint {
     var type: CheckpointType { get }
     
@@ -21,6 +22,7 @@ protocol Checkpoint {
 }
 
 
+// Checkpoint for restricted areas
 class RestrictedAreaCheckpoint: Checkpoint {
     var type: CheckpointType
     var area: Area
@@ -41,7 +43,7 @@ class RestrictedAreaCheckpoint: Checkpoint {
     }
 }
 
-
+// Checkpoint for skip lines
 class SkipTheLinesCheckpoint: Checkpoint {
     var type: CheckpointType
     
@@ -59,6 +61,7 @@ class SkipTheLinesCheckpoint: Checkpoint {
     }
 }
 
+// register checkpoint
 class RegisterCheckPoint: Checkpoint {
     
     var type: CheckpointType
@@ -69,7 +72,7 @@ class RegisterCheckPoint: Checkpoint {
     
     func swipe(pass: Pass) {
         pass.checkPersonalInformation()
-        if pass.doesAllowDiscounts() {
+        if !pass.doesAllowDiscounts() {
             print("\(pass.entrantPassTitle) - No discount")
         } else {
             let discountOnFood = pass.authorizedDiscounts()[0]

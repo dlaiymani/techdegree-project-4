@@ -57,8 +57,11 @@ protocol Entrant {
     var entrantCategory: EntrantCategory { get }
     var entrantType: EntrantType { get }
     
+    // Return a String for the type of entrant; Ex: Guest VIP
     func stringForEntrantPass() -> String
+    // Return a String for the personal information of an entrant
     func stringForPersonalInformation() -> String
+    // Return the Personzl Information of an entrant
     func getPersonalInformation() -> PersonalInformation?
 }
 
@@ -123,7 +126,7 @@ class Guest: Entrant {
 }
 
 
-
+// Employee class. Implements Entrant protocol
 class Employee: Entrant {
     var entrantType: EntrantType
     var entrantCategory: EntrantCategory
@@ -165,6 +168,7 @@ class Employee: Entrant {
        
 }
 
+// Manager class. Implements Entrant protocol
 class Manager: Entrant {
     var entrantCategory: EntrantCategory
     var entrantType: EntrantType

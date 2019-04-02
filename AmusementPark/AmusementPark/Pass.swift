@@ -17,10 +17,12 @@ class Pass {
         entrantPassTitle = entrant.stringForEntrantPass()
     }
     
+    // Print the personal information of the pass
     func printPass() {
         print(entrant.stringForPersonalInformation())
     }
     
+    // Check if the pass allows the access to restricted areas
     func isAuthorizedForArea(_ area: Area) -> Bool {
         if entrant.areaAccess.contains(area) {
             return true
@@ -29,6 +31,7 @@ class Pass {
         }
     }
     
+    // Check if the pass allows to skip the lines
     func isAuthorizedToSkipTheLines() -> Bool {
         if entrant.rideAccess.contains(.skipTheLines) {
             return true
@@ -37,6 +40,7 @@ class Pass {
         }
     }
     
+    // Check if the pass allows some discounts
     func doesAllowDiscounts() -> Bool {
         let discountOnFood = entrant.discountAccess[0].discount
         let discountOnMerchandise = entrant.discountAccess[1].discount
@@ -47,29 +51,32 @@ class Pass {
         }
     }
     
+    // Return the different discounts
     func authorizedDiscounts() -> [Double] {
         return [entrant.discountAccess[0].discount, entrant.discountAccess[1].discount]
     }
     
+    // Check if some personal information is missing
     func checkPersonalInformation() {
         do {
             if let personalInformation = entrant.getPersonalInformation() {
-                guard personalInformation.firstName != "" else {
+                
+                if personalInformation.firstName == "" {
                     throw PersonalInformationEntryError.missingFirstName
                 }
-                guard personalInformation.lastName != "" else {
+                if personalInformation.lastName == "" {
                     throw PersonalInformationEntryError.missingLastName
                 }
-                guard personalInformation.streetAddress != "" else {
+                if personalInformation.streetAddress == "" {
                     throw PersonalInformationEntryError.missingStreetAddress
                 }
-                guard personalInformation.city != "" else {
-                throw PersonalInformationEntryError.missingCity
+                if personalInformation.city == "" {
+                    throw PersonalInformationEntryError.missingCity
                 }
-                guard personalInformation.state != "" else {
+                if personalInformation.state == "" {
                     throw PersonalInformationEntryError.missingState
                 }
-                guard personalInformation.zipCode != "" else {
+                if personalInformation.zipCode == "" {
                     throw PersonalInformationEntryError.missingZipCode
                 }
                 
@@ -102,6 +109,7 @@ class Pass {
     }
 }
 
+// Allow to compute the difference between two dates
 extension Date {
     static func - (lhs: Date, rhs: Date) -> TimeInterval {
         return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
