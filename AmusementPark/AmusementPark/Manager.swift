@@ -14,7 +14,7 @@ class Manager: Entrant {
     var entrantCategory: EntrantCategory
     var entrantType: EntrantType
     var areaAccess: [Area] {
-        return [.amusement, .kitchen, .rideControl, .maintenance]
+        return [.amusement, .kitchen, .rideControl, .maintenance, .office]
     }
     var rideAccess: [RideAccess] {
         return [RideAccess.all]
@@ -32,6 +32,10 @@ class Manager: Entrant {
         self.personalInformation = personalInformation
         self.entrantCategory = .manager
         self.entrantType = .manager
+    }
+    
+    func swipe(at checkpoint: Checkpoint) -> Bool {
+        return checkpoint.validateAccess(entrant: self)
     }
     
     func stringForEntrantPass() -> String {

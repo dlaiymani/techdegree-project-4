@@ -44,6 +44,10 @@ class Guest: Entrant {
         self.entrantCategory = .guest
     }
     
+    func swipe(at checkpoint: Checkpoint) -> Bool {
+        return checkpoint.validateAccess(entrant: self)
+    }
+    
     
     func stringForEntrantPass() -> String {
         return "\(self.entrantCategory) \(self.entrantType) Pass"

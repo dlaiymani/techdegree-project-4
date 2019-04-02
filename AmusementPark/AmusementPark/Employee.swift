@@ -42,6 +42,9 @@ class Employee: Entrant {
         self.personalInformation = personalInformation
     }
     
+    func swipe(at checkpoint: Checkpoint) -> Bool {
+        return checkpoint.validateAccess(entrant: self)
+    }
     
     func stringForEntrantPass() -> String {
         return "\(self.entrantCategory) \(self.entrantType) Service Pass"

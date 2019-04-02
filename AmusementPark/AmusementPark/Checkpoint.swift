@@ -18,7 +18,7 @@ enum CheckpointType {
 protocol Checkpoint {
     var type: CheckpointType { get }
     
-    func swipe(pass: Pass)
+    func validateAccess(entrant: Entrant) -> Bool
 }
 
 
@@ -32,12 +32,14 @@ class RestrictedAreaCheckpoint: Checkpoint {
         self.type = .restrictedArea
     }
     
-    
-    func swipe(pass: Pass) {
-        if pass.isAuthorizedForArea(area) {
-            print("\(pass.entrantPassTitle) - Authorized access to: \(area.rawValue)")
+    // Access validation. For testing purpose this method prints some informations
+    func validateAccess(entrant: Entrant) -> Bool {
+        if entrant.areaAccess.contains(area) {
+            print("\(entrant.stringForPersonalInformation()) - Authorized access to: \(area.rawValue)")
+            return true
         } else {
-            print("\(pass.entrantPassTitle) - You have not the access right to enter this area: \(area.rawValue)")
+            print("\(entrant.stringForPersonalInformation()) - You have not the access right to enter this area: \(area.rawValue)")
+            return false
         }
     }
 }
@@ -50,16 +52,19 @@ class SkipTheLinesCheckpoint: Checkpoint {
         self.type = .skipTheLines
     }
 
-    func swipe(pass: Pass) {
-        if pass.isAuthorizedToSkipTheLines() {
-            print("\(pass.entrantPassTitle) - You can the skip the line")
+    // Access validation. For testing purpose this method prints some informations
+    func validateAccess(entrant: Entrant) -> Bool {
+        if entrant.rideAccess.contains(.skipTheLines) {
+            print("\(entrant.stringForPersonalInformation()) - You can skip the lines")
+            return true
         } else {
-            print("\(pass.entrantPassTitle) - You have not the access right to skip the line")
+            print("\(entrant.stringForPersonalInformation()) - You have not the access right to skip the line")
+            return false
         }
     }
 }
 
-// register checkpoint
+// Register checkpoint
 class RegisterCheckPoint: Checkpoint {
     
     var type: CheckpointType
@@ -68,13 +73,18 @@ class RegisterCheckPoint: Checkpoint {
         self.type = .register
     }
     
-    func swipe(pass: Pass) {
-        if !pass.doesAllowDiscounts() {
-            print("\(pass.entrantPassTitle) - No discount")
+    // Access validation. For testing purpose this method prints some informations
+    func validateAccess(entrant: Entrant) -> Bool {
+        let discountOnFood = entrant.discountAccess[0].discount
+        let discountOnMerchandise = entrant.discountAccess[1].discount
+        if discountOnFood == 0.0 && discountOnMerchandise == 0.0 {
+            print("\(entrant.stringForPersonalInformation()) - No discount")
+            return false
         } else {
-            let discountOnFood = pass.authorizedDiscounts()[0]
-            let discountOnMerchandise = pass.authorizedDiscounts()[1]
-            print("\(pass.entrantPassTitle) - You have \(discountOnFood)% discount on food and \(discountOnMerchandise)% discount on merchandise")
+            let discountOnFood = entrant.discountAccess[0].discount
+            let discountOnMerchandise = entrant.discountAccess[1].discount
+            print("\(entrant.stringForPersonalInformation()) - You have \(discountOnFood)% discount on food and \(discountOnMerchandise)% discount on merchandise")
+            return true
         }
     }
 }

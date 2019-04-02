@@ -17,7 +17,6 @@
 		AA51268F2251FE9C00766F18 /* Entrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51268E2251FE9C00766F18 /* Entrant.swift */; };
 		AA51269122520CCF00766F18 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51269022520CCF00766F18 /* Errors.swift */; };
 		AA5126932252116000766F18 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126922252116000766F18 /* Checkpoint.swift */; };
-		AA5126972253288E00766F18 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5126962253288E00766F18 /* Pass.swift */; };
 		AA512699225328D300766F18 /* PersonalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA512698225328D300766F18 /* PersonalInformation.swift */; };
 		AA51269B225341AE00766F18 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51269A225341AE00766F18 /* Guest.swift */; };
 		AA51269E225345F000766F18 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51269D225345F000766F18 /* Extensions.swift */; };
@@ -59,7 +58,6 @@
 		AA51268E2251FE9C00766F18 /* Entrant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entrant.swift; sourceTree = "<group>"; };
 		AA51269022520CCF00766F18 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		AA5126922252116000766F18 /* Checkpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
-		AA5126962253288E00766F18 /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		AA512698225328D300766F18 /* PersonalInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation.swift; sourceTree = "<group>"; };
 		AA51269A225341AE00766F18 /* Guest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
 		AA51269D225345F000766F18 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				AA51269A225341AE00766F18 /* Guest.swift */,
 				AA51269F2253497400766F18 /* Employee.swift */,
 				AA5126A122534BDE00766F18 /* Manager.swift */,
-				AA5126962253288E00766F18 /* Pass.swift */,
 				AA512698225328D300766F18 /* PersonalInformation.swift */,
 				AA51269022520CCF00766F18 /* Errors.swift */,
 				AA51269D225345F000766F18 /* Extensions.swift */,
@@ -289,7 +286,6 @@
 				AA5126A02253497500766F18 /* Employee.swift in Sources */,
 				AA5126612251FE7100766F18 /* AppDelegate.swift in Sources */,
 				AA51269E225345F000766F18 /* Extensions.swift in Sources */,
-				AA5126972253288E00766F18 /* Pass.swift in Sources */,
 				AA51268F2251FE9C00766F18 /* Entrant.swift in Sources */,
 				AA5126A222534BDE00766F18 /* Manager.swift in Sources */,
 				AA51269B225341AE00766F18 /* Guest.swift in Sources */,
