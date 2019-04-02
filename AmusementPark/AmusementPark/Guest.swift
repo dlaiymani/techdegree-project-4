@@ -58,6 +58,7 @@ class Guest: Entrant {
     }
 }
 
+// ChildGuest class, inherits from Guest
 class ChildGuest: Guest {
     var birthDate: Date
     
@@ -76,6 +77,7 @@ class ChildGuest: Guest {
         }
     }
     
+    // test if the child is too old
     func validateDateOfBirth() -> Bool {
         let now = Date()
         let interval = now.timeIntervalSince(self.birthDate)

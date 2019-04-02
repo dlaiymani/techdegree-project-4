@@ -45,25 +45,15 @@ class ViewController: UIViewController {
         checkpoints = [RestrictedAreaCheckpoint(aera: .amusement), RestrictedAreaCheckpoint(aera: .kitchen), RestrictedAreaCheckpoint(aera: .maintenance), RestrictedAreaCheckpoint(aera: .rideControl), RestrictedAreaCheckpoint(aera: .office), RegisterCheckPoint(), SkipTheLinesCheckpoint() ]
     }
     
-    // Add or remove pass in the guestsPass array (last line)
+    // Add or remove pass in the guestsPass array
     func createGuestsPass() {
         let pass1 = Pass(entrant: Guest(entrantType: .classic))
         let pass2 = Pass(entrant: Guest(entrantType: .vip))
         do {
-            let childEntrant = try ChildGuest(birthDate: "2017/10/10")
-            guestsPass.append(Pass(entrant: childEntrant))
-        } catch EntrantError.missingDateOfBirth {
-            print("Date of birth is missing")
-        } catch EntrantError.tooOld {
-            print("Child is too old")
-        } catch let error {
-            print("Unexpected error")
-        }
-
-        do {
-            let childEntrant = try ChildGuest(birthDate: "2000/08/08")
-            guestsPass.append(Pass(entrant: childEntrant))
-
+            let childEntrant1 = try ChildGuest(birthDate: "2017/10/10")
+            guestsPass.append(Pass(entrant: childEntrant1))
+            let childEntrant2 = try ChildGuest(birthDate: "2000/08/08")
+            guestsPass.append(Pass(entrant: childEntrant2))
         } catch EntrantError.missingDateOfBirth {
             print("Date of birth is missing")
         } catch EntrantError.tooOld {
@@ -73,7 +63,7 @@ class ViewController: UIViewController {
         }
     }
   
-    // Add or remove pass in the employeesPass array (last line)
+    // Add or remove pass in the employeesPass array
     func createEmployeesPass() {
         let personalInformation1 = PersonalInformation(firstName: "Sheldon", lastName: "Cooper", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "91001")
         let personalInformation2 = PersonalInformation(firstName: "Amy", lastName: "Fowler", streetAddress: "", city: "Pasadena", state: "", zipCode: "91001")
@@ -96,7 +86,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // Add or remove pass in the managersPass array (last line)
+    // Add or remove pass in the managersPass array 
     func createManagersPass() {
         let personlInformationManager1 = PersonalInformation(firstName: "Rajesh", lastName: "Kootrapali", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "91001")
         let personlInformationManager2 = PersonalInformation(firstName: "Howard", lastName: "Wolowitz", streetAddress: "", city: "Pasadena", state: "California", zipCode: "91001")
