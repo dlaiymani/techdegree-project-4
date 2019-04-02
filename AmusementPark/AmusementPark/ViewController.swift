@@ -48,13 +48,13 @@ class ViewController: UIViewController {
     // Add or remove pass in the guestsPass array
     func createGuests() {
         let guest1 = Guest(entrantType: .classic)
-      //  guests.append(guest1)
+        //guests.append(guest1)
         let guest2 = Guest(entrantType: .vip)
-        guests.append(guest2)
+       // guests.append(guest2)
         do {
-            let childEntrant1 = try ChildGuest(birthDate: "2017/10/10")
-           // guests.append(childEntrant1)
-            let childEntrant2 = try ChildGuest(birthDate: "2000/08/08")
+            let childEntrant1 = try ChildGuest(birthDate: "2017-04-02")
+            //guests.append(childEntrant1)
+            let childEntrant2 = try ChildGuest(birthDate: "2000-08-08")
             guests.append(childEntrant2)
         } catch EntrantError.missingDateOfBirth {
             print("Date of birth is missing")

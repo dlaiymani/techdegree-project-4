@@ -92,6 +92,10 @@ class ChildGuest: Guest {
         }
     }
     
+    override func swipe(at checkpoint: Checkpoint) -> Bool {
+        checkpoint.checkBirthday(entrant: self)
+        return checkpoint.validateAccess(entrant: self)
+    }
     override func stringForPersonalInformation() -> String {
         return "Personal Information: Date of birth: \(self.birthDate)"
     }

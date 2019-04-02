@@ -19,6 +19,7 @@ protocol Checkpoint {
     var type: CheckpointType { get }
     
     func validateAccess(entrant: Entrant) -> Bool
+    func checkBirthday(entrant: Entrant)
 }
 
 
@@ -42,6 +43,15 @@ class RestrictedAreaCheckpoint: Checkpoint {
             return false
         }
     }
+    
+    // Displays an Happy Birthday Message
+    func checkBirthday(entrant: Entrant) {
+        if let childEntrant = entrant as? ChildGuest {
+            if childEntrant.birthDate.isBirthday() {
+                print("Happy Birthday")
+            }
+        }
+    }
 }
 
 // Checkpoint for skip lines
@@ -60,6 +70,15 @@ class SkipTheLinesCheckpoint: Checkpoint {
         } else {
             print("\(entrant.stringForPersonalInformation()) - You have not the access right to skip the line")
             return false
+        }
+    }
+    
+    // Displays an Happy Birthday Message
+    func checkBirthday(entrant: Entrant) {
+        if let childEntrant = entrant as? ChildGuest {
+            if childEntrant.birthDate == Date() {
+                print("Happy Birthday")
+            }
         }
     }
 }
@@ -87,6 +106,14 @@ class RegisterCheckPoint: Checkpoint {
             return true
         }
     }
+    
+    // Displays an Happy Birthday Message
+    func checkBirthday(entrant: Entrant) {
+        if let childEntrant = entrant as? ChildGuest {
+            if childEntrant.birthDate == Date() {
+                print("Happy Birthday")
+            }
+        }
+    }
 }
-
 
