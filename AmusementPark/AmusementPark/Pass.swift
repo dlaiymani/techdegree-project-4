@@ -56,63 +56,6 @@ class Pass {
         return [entrant.discountAccess[0].discount, entrant.discountAccess[1].discount]
     }
     
-    // Check if some personal information is missing
-    func checkPersonalInformation() {
-        do {
-            if let personalInformation = entrant.getPersonalInformation() {
-                
-                if personalInformation.firstName == "" {
-                    throw PersonalInformationEntryError.missingFirstName
-                }
-                if personalInformation.lastName == "" {
-                    throw PersonalInformationEntryError.missingLastName
-                }
-                if personalInformation.streetAddress == "" {
-                    throw PersonalInformationEntryError.missingStreetAddress
-                }
-                if personalInformation.city == "" {
-                    throw PersonalInformationEntryError.missingCity
-                }
-                if personalInformation.state == "" {
-                    throw PersonalInformationEntryError.missingState
-                }
-                if personalInformation.zipCode == "" {
-                    throw PersonalInformationEntryError.missingZipCode
-                }
-                
-            } else {
-                // Check if date of birth is correct i.e < 5
-                if let childEntrant = entrant as? Guest, let dateOfBirth = childEntrant.birthDate {
-                    let now = Date()
-                    if now - dateOfBirth >= 5 {
-                        throw DateOfBirthErrors.childTooOld
-                    }
-                }
-            }
-        } catch PersonalInformationEntryError.missingFirstName {
-            print("First Name is missing")
-        } catch PersonalInformationEntryError.missingLastName {
-            print("Last Name is missing")
-        } catch PersonalInformationEntryError.missingStreetAddress {
-            print("Street Address is missing")
-        } catch PersonalInformationEntryError.missingCity {
-            print("City is missing")
-        } catch PersonalInformationEntryError.missingState {
-            print("State is missing")
-        } catch PersonalInformationEntryError.missingZipCode {
-            print("Zip Code is missing")
-        } catch DateOfBirthErrors.childTooOld {
-            print("Child is too old")
-        } catch let error {
-            fatalError("\(error)")
-        }
-    }
 }
 
-// Allow to compute the difference between two dates
-extension Date {
-    static func - (lhs: Date, rhs: Date) -> TimeInterval {
-        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
-    }
-        
-}
+

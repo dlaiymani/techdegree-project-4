@@ -19,4 +19,12 @@ struct PersonalInformation: CustomStringConvertible  {
     var description: String {
         return "\(firstName) -\(firstName). Address: \(streetAddress), \(zipCode), \(city) - \(state)"
     }
+    
+    func validatePersonalInformation() -> Bool {
+        if firstName == "" || lastName == "" || streetAddress == "" || city == "" || state == "" || zipCode == "" {
+            return false
+        } else {
+            return true
+        }
+    }
 }

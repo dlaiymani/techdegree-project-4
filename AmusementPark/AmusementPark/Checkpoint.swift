@@ -34,7 +34,6 @@ class RestrictedAreaCheckpoint: Checkpoint {
     
     
     func swipe(pass: Pass) {
-        pass.checkPersonalInformation()
         if pass.isAuthorizedForArea(area) {
             print("\(pass.entrantPassTitle) - Authorized access to: \(area.rawValue)")
         } else {
@@ -52,7 +51,6 @@ class SkipTheLinesCheckpoint: Checkpoint {
     }
 
     func swipe(pass: Pass) {
-        pass.checkPersonalInformation()
         if pass.isAuthorizedToSkipTheLines() {
             print("\(pass.entrantPassTitle) - You can the skip the line")
         } else {
@@ -71,7 +69,6 @@ class RegisterCheckPoint: Checkpoint {
     }
     
     func swipe(pass: Pass) {
-        pass.checkPersonalInformation()
         if !pass.doesAllowDiscounts() {
             print("\(pass.entrantPassTitle) - No discount")
         } else {

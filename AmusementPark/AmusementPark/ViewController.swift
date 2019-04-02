@@ -47,14 +47,30 @@ class ViewController: UIViewController {
     
     // Add or remove pass in the guestsPass array (last line)
     func createGuestsPass() {
-        if let childDateOfBirth = createDate(from: "2017/10/10"), let adultDateOfBirth = createDate(from: "2000/08/08") {
-            let pass1 = Pass(entrant: Guest(entrantType: .classic))
-            let pass2 = Pass(entrant: Guest(entrantType: .vip))
-            let pass3 = Pass(entrant: Guest(childBornOn: childDateOfBirth))
-            let pass4 = Pass(entrant: Guest(childBornOn: adultDateOfBirth))
-            guestsPass = [pass4]
+        let pass1 = Pass(entrant: Guest(entrantType: .classic))
+        let pass2 = Pass(entrant: Guest(entrantType: .vip))
+        do {
+            let childEntrant = try ChildGuest(birthDate: "2017/10/10")
+            guestsPass.append(Pass(entrant: childEntrant))
+        } catch EntrantError.missingDateOfBirth {
+            print("Date of birth is missing")
+        } catch EntrantError.tooOld {
+            print("Child is too old")
+        } catch let error {
+            print("Unexpected error")
         }
-        
+
+        do {
+            let childEntrant = try ChildGuest(birthDate: "2000/08/08")
+            guestsPass.append(Pass(entrant: childEntrant))
+
+        } catch EntrantError.missingDateOfBirth {
+            print("Date of birth is missing")
+        } catch EntrantError.tooOld {
+            print("Child is too old")
+        } catch let error {
+            print("Unexpected error")
+        }
     }
   
     // Add or remove pass in the employeesPass array (last line)
@@ -63,30 +79,38 @@ class ViewController: UIViewController {
         let personalInformation2 = PersonalInformation(firstName: "Amy", lastName: "Fowler", streetAddress: "", city: "Pasadena", state: "", zipCode: "91001")
         let personalInformation3 = PersonalInformation(firstName: "Penny", lastName: "", streetAddress: "", city: "Ohmaha", state: "Nebraska", zipCode: "68197")
         let personalInformation4 = PersonalInformation(firstName: "Leonard", lastName: "Hofstader", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "")
-        let pass1 = Pass(entrant: Employee(entrantType: .food, personalInformation: personalInformation1))
-        let pass2 = Pass(entrant: Employee(entrantType: .maintenance, personalInformation: personalInformation2))
-        let pass3 = Pass(entrant: Employee(entrantType: .ride, personalInformation: personalInformation3))
-        let pass4 = Pass(entrant: Employee(entrantType: .food, personalInformation: personalInformation4))
-        employeesPass = [pass3]
+        
+        do {
+            let employeeEntrant1 = try Employee(entrantType: .food, personalInformation: personalInformation1)
+            employeesPass.append(Pass(entrant: employeeEntrant1))
+            let employeeEntrant2 = try Employee(entrantType: .maintenance, personalInformation: personalInformation2)
+            employeesPass.append(Pass(entrant: employeeEntrant1))
+            let employeeEntrant3 = try Employee(entrantType: .ride, personalInformation: personalInformation3)
+            employeesPass.append(Pass(entrant: employeeEntrant1))
+            let employeeEntrant4 = try Employee(entrantType: .food, personalInformation: personalInformation4)
+            employeesPass.append(Pass(entrant: employeeEntrant1))
+        } catch EntrantError.addressImcomplete {
+            print("Address incomplete")
+        } catch let error {
+            print("Unexpected error")
+        }
     }
     
     // Add or remove pass in the managersPass array (last line)
     func createManagersPass() {
         let personlInformationManager1 = PersonalInformation(firstName: "Rajesh", lastName: "Kootrapali", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "91001")
         let personlInformationManager2 = PersonalInformation(firstName: "Howard", lastName: "Wolowitz", streetAddress: "", city: "Pasadena", state: "California", zipCode: "91001")
-        let pass1 = Pass(entrant: Manager(personalInformation: personlInformationManager1))
-        let pass2 = Pass(entrant: Manager(personalInformation: personlInformationManager2))
-        managersPass = [pass1, pass2]
         
+        do {
+            let managerEntrant1 = try Manager(personalInformation: personlInformationManager1)
+            managersPass.append(Pass(entrant: managerEntrant1))
+            let managerEntrant2 = try Manager(personalInformation: personlInformationManager2)
+            managersPass.append(Pass(entrant: managerEntrant2))
+        } catch EntrantError.addressImcomplete {
+            print("Address incomplete")
+        } catch let error {
+            print("Unexpected error")
+        }
     }
-    
-    // Create a date from a String
-    func createDate(from date: String) -> Date? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        return formatter.date(from: date) ?? nil
-    }
-    
-
 }
 

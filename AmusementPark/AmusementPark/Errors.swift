@@ -8,17 +8,9 @@
 
 import Foundation
 
-enum PersonalInformationEntryError: Error {
+enum EntrantError: Error {
     case missingDateOfBirth
-    case missingFirstName
-    case missingLastName
-    case missingStreetAddress
-    case missingCity
-    case missingState
-    case missingZipCode
+    case tooOld
+    case addressImcomplete
     
-}
-
-enum DateOfBirthErrors: Error {
-    case childTooOld
 }
