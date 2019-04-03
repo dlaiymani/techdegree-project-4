@@ -56,14 +56,12 @@ protocol Entrant {
     var discountAccess: [DiscountAccess] { get }
     var entrantCategory: EntrantCategory { get }
     var entrantType: EntrantType { get }
-    //var pass: Pass { get set }
     
-    // Return a String for the type of entrant; Ex: Guest VIP
-    func stringForEntrantPass() -> String
+    
     // Return a String for the personal information of an entrant
     func stringForPersonalInformation() -> String
     // Return the Personzl Information of an entrant
-    func getPersonalInformation() -> PersonalInformation?
+   // func getPersonalInformation() -> PersonalInformation?
     // Swipe at a checkpoint
     func swipe(at checkpoint: Checkpoint) -> Bool
 }

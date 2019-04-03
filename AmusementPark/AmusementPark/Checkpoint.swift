@@ -19,7 +19,6 @@ protocol Checkpoint {
     var type: CheckpointType { get }
     
     func validateAccess(entrant: Entrant) -> Bool
-    func checkBirthday(entrant: Entrant)
 }
 
 
@@ -27,29 +26,25 @@ protocol Checkpoint {
 class RestrictedAreaCheckpoint: Checkpoint {
     var type: CheckpointType
     var area: Area
+    var timeOfLastSwipe: Date
+    
     
     init(aera: Area) {
         self.area = aera
         self.type = .restrictedArea
+        self.timeOfLastSwipe = Date()
     }
     
-    // Access validation. For testing purpose this method prints some informations
+    // Access validation.
     func validateAccess(entrant: Entrant) -> Bool {
-        if entrant.areaAccess.contains(area) {
-            print("\(entrant.stringForPersonalInformation()) - Authorized access to: \(area.rawValue)")
+        let now = Date()
+        let secondsSinceLastSwipe = now - self.timeOfLastSwipe
+        self.timeOfLastSwipe = now
+
+        if entrant.areaAccess.contains(area) && secondsSinceLastSwipe < 5 {
             return true
         } else {
-            print("\(entrant.stringForPersonalInformation()) - You have not the access right to enter this area: \(area.rawValue)")
             return false
-        }
-    }
-    
-    // Displays an Happy Birthday Message
-    func checkBirthday(entrant: Entrant) {
-        if let childEntrant = entrant as? ChildGuest {
-            if childEntrant.birthDate.isBirthday() {
-                print("Happy Birthday")
-            }
         }
     }
 }
@@ -62,23 +57,12 @@ class SkipTheLinesCheckpoint: Checkpoint {
         self.type = .skipTheLines
     }
 
-    // Access validation. For testing purpose this method prints some informations
+    // Access validation.
     func validateAccess(entrant: Entrant) -> Bool {
         if entrant.rideAccess.contains(.skipTheLines) {
-            print("\(entrant.stringForPersonalInformation()) - You can skip the lines")
             return true
         } else {
-            print("\(entrant.stringForPersonalInformation()) - You have not the access right to skip the line")
             return false
-        }
-    }
-    
-    // Displays an Happy Birthday Message
-    func checkBirthday(entrant: Entrant) {
-        if let childEntrant = entrant as? ChildGuest {
-            if childEntrant.birthDate == Date() {
-                print("Happy Birthday")
-            }
         }
     }
 }
@@ -92,27 +76,14 @@ class RegisterCheckPoint: Checkpoint {
         self.type = .register
     }
     
-    // Access validation. For testing purpose this method prints some informations
+    // Access validation.
     func validateAccess(entrant: Entrant) -> Bool {
         let discountOnFood = entrant.discountAccess[0].discount
         let discountOnMerchandise = entrant.discountAccess[1].discount
         if discountOnFood == 0.0 && discountOnMerchandise == 0.0 {
-            print("\(entrant.stringForPersonalInformation()) - No discount")
             return false
         } else {
-            let discountOnFood = entrant.discountAccess[0].discount
-            let discountOnMerchandise = entrant.discountAccess[1].discount
-            print("\(entrant.stringForPersonalInformation()) - You have \(discountOnFood)% discount on food and \(discountOnMerchandise)% discount on merchandise")
             return true
-        }
-    }
-    
-    // Displays an Happy Birthday Message
-    func checkBirthday(entrant: Entrant) {
-        if let childEntrant = entrant as? ChildGuest {
-            if childEntrant.birthDate == Date() {
-                print("Happy Birthday")
-            }
         }
     }
 }

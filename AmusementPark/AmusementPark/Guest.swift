@@ -48,17 +48,8 @@ class Guest: Entrant {
         return checkpoint.validateAccess(entrant: self)
     }
     
-    
-    func stringForEntrantPass() -> String {
-        return "\(self.entrantCategory) \(self.entrantType) Pass"
-    }
-    
     func stringForPersonalInformation() -> String {
         return "No personal information to display"
-    }
-    
-    func getPersonalInformation() -> PersonalInformation? {
-        return nil
     }
 }
 
@@ -75,17 +66,17 @@ class ChildGuest: Guest {
         }
         super.init(entrantType: EntrantType.freeChild)
 
-        // test if the age is correct i.e <= 5
+        // Test if the age is correct i.e <= 5
         guard validateDateOfBirth() else {
             throw EntrantError.tooOld
         }
     }
     
-    // test if the child is too old
+    // Test if the child is too old or not
     func validateDateOfBirth() -> Bool {
         let now = Date()
         let interval = now.timeIntervalSince(self.birthDate)
-        if  interval/31536000 >= 5 {
+        if  interval/31536000 >= 5 { // Must exist better solution
             return false
         } else {
             return true
@@ -93,10 +84,15 @@ class ChildGuest: Guest {
     }
     
     override func swipe(at checkpoint: Checkpoint) -> Bool {
-        checkpoint.checkBirthday(entrant: self)
+        //checkpoint.checkBirthday(entrant: self)
         return checkpoint.validateAccess(entrant: self)
     }
+    
     override func stringForPersonalInformation() -> String {
-        return "Personal Information: Date of birth: \(self.birthDate)"
+        var returnString = "Personal Information: Date of birth: \(self.birthDate). "
+        if self.birthDate.isBirthday() {
+            returnString += "Hey It's your birthday today: Happy Birthday 🎂 🎈"
+        }
+        return returnString
     }
 }

@@ -38,16 +38,10 @@ class Manager: Entrant {
         return checkpoint.validateAccess(entrant: self)
     }
     
-    func stringForEntrantPass() -> String {
-        return "\(self.entrantCategory) Pass"
-    }
     
     func stringForPersonalInformation() -> String {
         return "Personal Information: \(self.personalInformation.description)"
     }
     
-    func getPersonalInformation() -> PersonalInformation? {
-        return self.personalInformation
-    }
 }
 

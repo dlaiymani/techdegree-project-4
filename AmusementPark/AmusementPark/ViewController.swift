@@ -26,23 +26,31 @@ class ViewController: UIViewController {
         // Comments the inner loops to test Guests, Employees or Managers
         for checkpoint in checkpoints {
             for guest in guests {
-             guest.swipe(at: checkpoint)
+                let authorization = guest.swipe(at: checkpoint)
+                displayInfo(for: guest, at: checkpoint, with: authorization)
+                //sleep(6) // For consecutive swipes testing
             }
             
-            /*for employee in employees {
-                employee.swipe(at: checkpoint)
+           /* for employee in employees {
+                let authorization = employee.swipe(at: checkpoint)
+                displayInfo(for: employee, at: checkpoint, with: authorization)
             }*/
             
             /*for manager in managers {
-                manager.swipe(at: checkpoint)
+                let authorization = manager.swipe(at: checkpoint)
+                displayInfo(for: manager, at: checkpoint, with: authorization)
             }*/
             
         }
     }
     
-
+  
+    
     func createCheckPoints() {
-        checkpoints = [RestrictedAreaCheckpoint(aera: .amusement), RestrictedAreaCheckpoint(aera: .kitchen), RestrictedAreaCheckpoint(aera: .maintenance), RestrictedAreaCheckpoint(aera: .rideControl), RestrictedAreaCheckpoint(aera: .office), RegisterCheckPoint(), SkipTheLinesCheckpoint() ]
+        let restrictedArea1 = RestrictedAreaCheckpoint(aera: .amusement)
+       // checkpoints = [restrictedArea1, restrictedArea1, restrictedArea1] // For testing consecutive swipes at the same checkpoint
+        
+       checkpoints = [RestrictedAreaCheckpoint(aera: .amusement), RestrictedAreaCheckpoint(aera: .kitchen), RestrictedAreaCheckpoint(aera: .maintenance), RestrictedAreaCheckpoint(aera: .rideControl), RestrictedAreaCheckpoint(aera: .office), RegisterCheckPoint(), SkipTheLinesCheckpoint() ]
     }
     
     // Add or remove pass in the guestsPass array
@@ -52,10 +60,10 @@ class ViewController: UIViewController {
         let guest2 = Guest(entrantType: .vip)
        // guests.append(guest2)
         do {
-            let childEntrant1 = try ChildGuest(birthDate: "2017-04-02")
-            //guests.append(childEntrant1)
+            let childEntrant1 = try ChildGuest(birthDate: "2016-04-03")
+            guests.append(childEntrant1)
             let childEntrant2 = try ChildGuest(birthDate: "2000-08-08")
-            guests.append(childEntrant2)
+           // guests.append(childEntrant2)
         } catch EntrantError.missingDateOfBirth {
             print("Date of birth is missing")
         } catch EntrantError.tooOld {
@@ -104,5 +112,41 @@ class ViewController: UIViewController {
             print("Unexpected error\(error) ")
         }
     }
+    
+    
+    // All "displays" are performed in the ViewController
+    func displayInfo(for entrant: Entrant, at checkpoint: Checkpoint, with authorization: Bool) {
+        switch checkpoint.type {
+        case .restrictedArea:
+            if let restrictedCheckpoint = checkpoint as? RestrictedAreaCheckpoint {
+                if authorization {
+                    print("\(entrant.stringForPersonalInformation()) - Authorized access to: \(restrictedCheckpoint.area.rawValue)")
+                } else {
+                    print("\(entrant.stringForPersonalInformation()) - You have not the access right to enter this area: \(restrictedCheckpoint.area.rawValue)")
+                }
+            }
+        case .skipTheLines:
+            if let skipTheLinesCheckpoint = checkpoint as? SkipTheLinesCheckpoint {
+                if authorization {
+                    print("\(entrant.stringForPersonalInformation()) - You can skip the lines")
+                } else {
+                    print("\(entrant.stringForPersonalInformation()) - You have not the access right to skip the line")
+                }
+            }
+        case .register:
+            if let registerCheckpoint = checkpoint as? RegisterCheckPoint {
+                if authorization {
+                    let discountOnFood = entrant.discountAccess[0].discount
+                    let discountOnMerchandise = entrant.discountAccess[1].discount
+                    print("\(entrant.stringForPersonalInformation()) - You have \(discountOnFood)% discount on food and \(discountOnMerchandise)% discount on merchandise")
+                } else {
+                    print("\(entrant.stringForPersonalInformation()) - No discount")
+                }
+            }
+        }
+        
+        
+    }
+    
 }
 
