@@ -8,8 +8,12 @@
 
 import Foundation
 
-// Guest class. Implements Entrant protocol
+// Guest class. Implements Entrant protocol.
+// Computed properties compute the different rights depending of the entrant type (vip, classic...)
 class Guest: Entrant {
+    
+    // MARK: - Properties
+
     var entrantType: EntrantType
     var entrantCategory: EntrantCategory
     var areaAccess: [Area] {
@@ -39,24 +43,34 @@ class Guest: Entrant {
         }
     }
     
+    // MARK: - Methods
+    
     init(entrantType: EntrantType) {
         self.entrantType = entrantType
         self.entrantCategory = .guest
     }
     
+    // Swipe at a checkpoint
     func swipe(at checkpoint: Checkpoint) -> Bool {
         return checkpoint.validateAccess(entrant: self)
     }
     
     func stringForPersonalInformation() -> String {
-        return "No personal information to display"
+        return "Guest - \(self.entrantType) - No personal information to display"
     }
 }
 
 // ChildGuest class, inherits from Guest
 class ChildGuest: Guest {
+
+    // MARK: - Properties
+    
     var birthDate: Date
     
+    
+    // MARK: - Methods
+
+    // Failable initializer in case of date of birth empty and child too old
     init(birthDate: String) throws {
         
         if let birthDate = birthDate.createDate() { // test if birth date is renseigned
@@ -84,13 +98,13 @@ class ChildGuest: Guest {
     }
     
     override func swipe(at checkpoint: Checkpoint) -> Bool {
-        //checkpoint.checkBirthday(entrant: self)
         return checkpoint.validateAccess(entrant: self)
     }
     
+    
     override func stringForPersonalInformation() -> String {
-        var returnString = "Personal Information: Date of birth: \(self.birthDate). "
-        if self.birthDate.isBirthday() {
+        var returnString = "Guest - child - Personal Information: Date of birth: \(self.birthDate). "
+        if self.birthDate.isBirthday() { // Add a message if it's the Entrant's birthday
             returnString += "Hey It's your birthday today: Happy Birthday 🎂 🎈"
         }
         return returnString

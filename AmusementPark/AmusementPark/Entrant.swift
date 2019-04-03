@@ -60,8 +60,6 @@ protocol Entrant {
     
     // Return a String for the personal information of an entrant
     func stringForPersonalInformation() -> String
-    // Return the Personzl Information of an entrant
-   // func getPersonalInformation() -> PersonalInformation?
     // Swipe at a checkpoint
     func swipe(at checkpoint: Checkpoint) -> Bool
 }

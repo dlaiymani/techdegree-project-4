@@ -10,7 +10,10 @@ import Foundation
 
 
 // Manager class. Implements Entrant protocol
+// Computed properties compute the different rights
 class Manager: Entrant {
+    
+    // MARK: - Properties
     var entrantCategory: EntrantCategory
     var entrantType: EntrantType
     var areaAccess: [Area] {
@@ -25,6 +28,9 @@ class Manager: Entrant {
     
     var personalInformation: PersonalInformation
     
+    // MARK: - Methods
+    
+    // Failable initializer in case of incomplete address
     init(personalInformation: PersonalInformation) throws {
         if !personalInformation.validatePersonalInformation() {
             throw EntrantError.addressImcomplete
@@ -34,13 +40,14 @@ class Manager: Entrant {
         self.entrantType = .manager
     }
     
+    // Swipe at a checkpoint
     func swipe(at checkpoint: Checkpoint) -> Bool {
         return checkpoint.validateAccess(entrant: self)
     }
     
     
     func stringForPersonalInformation() -> String {
-        return "Personal Information: \(self.personalInformation.description)"
+        return "Manager - \(self.entrantType) - Personal Information: \(self.personalInformation.description)"
     }
     
 }

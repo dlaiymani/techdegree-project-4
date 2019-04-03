@@ -10,7 +10,11 @@ import Foundation
 
 
 // Employee class. Implements Entrant protocol
+// Computed properties compute the different rights depending of the entrant type (food, ride...)
 class Employee: Entrant {
+    
+    // MARK: - Properties
+    
     var entrantType: EntrantType
     var entrantCategory: EntrantCategory
     var areaAccess: [Area] {
@@ -31,6 +35,9 @@ class Employee: Entrant {
 
     var personalInformation: PersonalInformation
     
+    // MARK: - Methods
+    
+    // Failable initializer in case of incomplete address
     init(entrantType: EntrantType, personalInformation: PersonalInformation) throws {
         self.entrantCategory = .employee
         self.entrantType = entrantType
@@ -42,12 +49,13 @@ class Employee: Entrant {
         self.personalInformation = personalInformation
     }
     
+    // Swipe at a checkpoint
     func swipe(at checkpoint: Checkpoint) -> Bool {
         return checkpoint.validateAccess(entrant: self)
     }
     
     func stringForPersonalInformation() -> String {
-        return "Personal Information: \(self.personalInformation.description)"
+        return "Employee - \(self.entrantType) - Personal Information: \(self.personalInformation.description)"
     }
     
 }

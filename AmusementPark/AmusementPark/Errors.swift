@@ -12,5 +12,4 @@ enum EntrantError: Error {
     case missingDateOfBirth
     case tooOld
     case addressImcomplete
-    
 }

@@ -14,7 +14,7 @@ enum CheckpointType {
     case register
 }
 
-//A checkpoint has a type and allows to swipe a pass
+//A checkpoint has a type and allows an Entrant to swipe
 protocol Checkpoint {
     var type: CheckpointType { get }
     
@@ -37,10 +37,10 @@ class RestrictedAreaCheckpoint: Checkpoint {
     
     // Access validation.
     func validateAccess(entrant: Entrant) -> Bool {
+        // Allows to test if two consecutive swipes are within 5 secondes. Access is refused in this case
         let now = Date()
         let secondsSinceLastSwipe = now - self.timeOfLastSwipe
         self.timeOfLastSwipe = now
-
         if entrant.areaAccess.contains(area) && secondsSinceLastSwipe < 5 {
             return true
         } else {

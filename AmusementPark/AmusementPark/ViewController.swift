@@ -23,20 +23,20 @@ class ViewController: UIViewController {
         createEmployees()
         createManagers()
         
-        // Comments the inner loops to test Guests, Employees or Managers
+        // Comment the inner loops to test Guests, Employees or Managers
         for checkpoint in checkpoints {
             for guest in guests {
                 let authorization = guest.swipe(at: checkpoint)
                 displayInfo(for: guest, at: checkpoint, with: authorization)
-                //sleep(6) // For consecutive swipes testing
+               // sleep(6) // For consecutive swipes testing
             }
             
-           /* for employee in employees {
+            /*for employee in employees {
                 let authorization = employee.swipe(at: checkpoint)
                 displayInfo(for: employee, at: checkpoint, with: authorization)
             }*/
             
-            /*for manager in managers {
+           /* for manager in managers {
                 let authorization = manager.swipe(at: checkpoint)
                 displayInfo(for: manager, at: checkpoint, with: authorization)
             }*/
@@ -44,16 +44,17 @@ class ViewController: UIViewController {
         }
     }
     
-  
+    // MARK: - Data creation
+
     
     func createCheckPoints() {
         let restrictedArea1 = RestrictedAreaCheckpoint(aera: .amusement)
-       // checkpoints = [restrictedArea1, restrictedArea1, restrictedArea1] // For testing consecutive swipes at the same checkpoint
+       //checkpoints = [restrictedArea1, restrictedArea1, restrictedArea1] // For testing consecutive swipes at the same checkpoint
         
        checkpoints = [RestrictedAreaCheckpoint(aera: .amusement), RestrictedAreaCheckpoint(aera: .kitchen), RestrictedAreaCheckpoint(aera: .maintenance), RestrictedAreaCheckpoint(aera: .rideControl), RestrictedAreaCheckpoint(aera: .office), RegisterCheckPoint(), SkipTheLinesCheckpoint() ]
     }
     
-    // Add or remove pass in the guestsPass array
+    // Add or remove pass in the guests array
     func createGuests() {
         let guest1 = Guest(entrantType: .classic)
         //guests.append(guest1)
@@ -73,7 +74,7 @@ class ViewController: UIViewController {
         }
     }
   
-    // Add or remove pass in the employeesPass array
+    // Add or remove pass in the employees array
     func createEmployees() {
         let personalInformation1 = PersonalInformation(firstName: "Sheldon", lastName: "Cooper", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "91001")
         let personalInformation2 = PersonalInformation(firstName: "Amy", lastName: "Fowler", streetAddress: "", city: "Pasadena", state: "", zipCode: "91001")
@@ -96,7 +97,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // Add or remove pass in the managersPass array 
+    // Add or remove pass in the managers array 
     func createManagers() {
         let personalInformationManager1 = PersonalInformation(firstName: "Rajesh", lastName: "Kootrapali", streetAddress: "1 Infinite Loop", city: "Pasadena", state: "California", zipCode: "91001")
         let personalInformationManager2 = PersonalInformation(firstName: "Howard", lastName: "Wolowitz", streetAddress: "", city: "Pasadena", state: "California", zipCode: "91001")
@@ -113,6 +114,9 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    // MARK: - Data display
+
     
     // All "displays" are performed in the ViewController
     func displayInfo(for entrant: Entrant, at checkpoint: Checkpoint, with authorization: Bool) {
